@@ -36,9 +36,29 @@ Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
 
+models.py
+```
+from django.db import models
+from django.contrib import admin
+class Car(models.Model):
+    car_id=models.IntegerField(primary_key=True)
+    brand=models.CharField(max_length=20)
+    car_model=models.CharField(max_length=20)
+    cos_email=models.EmailField()
+    dop=models.DateField()
+class CarAdmin(admin.ModelAdmin):
+    list_display=['car_id','brand','car_model','cos_email','dop']
+
+```
+admin.py
+
+from django.contrib import admin
+from.models import Car,CarAdmin
+admin.site.register(Car,CarAdmin)
 
 
 ## OUTPUT
+<img width="1919" height="695" alt="image" src="https://github.com/user-attachments/assets/3171c667-4fa7-4ea4-9812-45b579095f3d" />
 
 
 
